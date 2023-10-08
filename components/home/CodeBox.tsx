@@ -1,10 +1,11 @@
-'use client'
+//@ts-nocheck
+'use client';
 
 import React, { Component } from 'react';
 import Draggable from 'react-draggable';
 
-class DragMe extends Component {
-  constructor(props: any) {
+class CodeBox extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       isClosed: false,
@@ -20,12 +21,12 @@ class DragMe extends Component {
     this.setState({ isClosed: true });
   };
 
-  handleTerminalInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleTerminalInputChange = (event) => {
     this.setState({ terminalInput: event.target.value });
   };
 
   handleRunCommand = () => {
-    const { terminalInput }: any = this.state;
+    const { terminalInput } = this.state;
     let terminalOutput = '';
     const terminalHistory = this.state.terminalHistory.slice();
 
@@ -51,8 +52,8 @@ class DragMe extends Component {
     }
 
     const codeEditorStyles = {
-      width: '800px',
-      height: '600px',
+      width: '650px',
+      height: '450px',
     };
 
     const terminalContainerStyles = {
@@ -61,7 +62,7 @@ class DragMe extends Component {
       fontFamily: 'Monaco, monospace',
       padding: '12px',
       borderRadius: '4px',
-      height: '200px',
+      height: '150px',
       overflowY: 'auto',
       cursor: this.state.isCursorBlinking ? 'text' : 'default',
     };
@@ -83,26 +84,33 @@ class DragMe extends Component {
       cursor: 'text', // Change the cursor to text when active
     };
 
+    const contentStyles = {
+      paddingTop: '50px', // Add padding to push content down
+    };
+
     return (
       <>
         <div className="h-screen flex justify-center items-center relative">
           <Draggable handle='.handle-drag'>
             <div className="bg-gray-800 rounded-lg shadow-xl p-4 relative" style={codeEditorStyles}>
 
-              {/* Top Bar with controls */}
-              <div className='handle-drag cursor-move bg-gray-900 px-3 py-2' style={{ position: 'absolute', top: 0, left: 0, width: '100%' }}>
-                <div style={{ display: 'flex' }}>
-                  <div
-                    className="w-2.5 h-2.5 bg-red-500 rounded-full mr-2 cursor-pointer"
-                    onClick={this.handleCloseClick}
-                  ></div>
-                  <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-2"></div>
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+              {/* Top Bar with Controls */}
+              <div className='handle-drag cursor-move bg-gray-900 px-3 py-2' style={{ position: 'absolute', top: 0, left: 0, width: '100%', display: 'flex', alignItems: 'center' }}>
+                <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <div className='flex gap-1'>
+                    <div className="w-2.5 h-2.5 bg-red-500 rounded-full cursor-pointer" onClick={this.handleCloseClick}></div>
+                    <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                  </div>
+                  <div className='flex gap-2'>
+                    <div style={{ backgroundColor: 'rgb(66, 66, 66)', padding: '3px 6px', borderRadius: '4px', display: 'flex' }}>
+                      <p className='m-0' style={{ color: 'white', fontSize: '11px', alignSelf: 'center' }}>index.js ×</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-
-              <div className="p-4 text-white">
+              <div className="p-4 text-white" style={contentStyles}>
                 <pre>
                   <code>
                     const details = &#123;
@@ -117,23 +125,25 @@ class DragMe extends Component {
                   </code>
                 </pre>
               </div>
+
+              {/* Terminal */}
               <div className="absolute bottom-0 w-full" style={terminalStyles} onClick={this.handleTerminalClick}>
                 <div style={terminalContainerStyles}>
-                  {this.state.terminalHistory.map((item: any, index: any) => (
+                  {this.state.terminalHistory.map((item, index) => (
                     <div key={index}>
                       <div>
-                        <div>
-                          {this.state.isTerminalActive ? 'arnab@portfolio ~ % ' : ''}
+                        <div className='text-green-600'>
+                          {this.state.isTerminalActive ? 'arnab@portfolio ~ ' : ''}
                           {this.state.isTerminalActive ? '$' : ''}
                           &nbsp;
-                          {item.input}
+                          <span className='text-white'>{item.input}</span>
                         </div>
                       </div>
                       <div>{item.output}</div>
                     </div>
                   ))}
                   <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <p>arnab@portfolio ~ % $</p>
+                    <p className='text-green-600'>arnab@portfolio ~ $</p>
                     &nbsp;
                     <div>
                       <input
@@ -159,4 +169,4 @@ class DragMe extends Component {
   }
 }
 
-export default DragMe;
+export default CodeBox;
