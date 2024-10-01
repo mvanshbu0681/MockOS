@@ -35,7 +35,7 @@ class CodeBox extends Component {
     const terminalHistory = this.state.terminalHistory.slice();
 
     if (terminalInput === 'node index.js') {
-      terminalOutput = 'const details = {\n  name: "Arnab Roy",\n  age: 18,\n  hobby: "coding and guitar",\n};';
+      terminalOutput = 'const details = {\n  name: "MockOS",\n  age: Under Construction,\n};';
     } else {
       terminalOutput = 'Command not recognized';
     }
@@ -142,11 +142,7 @@ class CodeBox extends Component {
                       <code>
                         const details = &#123;
                         <br />
-                        &nbsp;name: &apos;Arnab Roy&apos;,
-                        <br />
-                        &nbsp;age: 18,
-                        <br />
-                        &nbsp;hobby: &apos;coding and guitar&apos;,
+                        &nbsp;name: &apos;MockOS&apos;,
                         <br />
                         &#125;
                       </code>
