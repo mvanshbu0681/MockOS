@@ -142,11 +142,11 @@ class CodeBox extends Component {
                       <code>
                         const details = &#123;
                         <br />
-                        &nbsp;name: 'Arnab Roy',
+                        &nbsp;name: &apos;Arnab Roy&apos;,
                         <br />
                         &nbsp;age: 18,
                         <br />
-                        &nbsp;hobby: 'coding and guitar',
+                        &nbsp;hobby: &apos;coding and guitar&apos;,
                         <br />
                         &#125;
                       </code>
