@@ -36,6 +36,8 @@ class CodeBox extends Component {
 
     if (terminalInput === 'node index.js') {
       terminalOutput = 'const details = {\n  name: "MockOS",\n  age: Under Construction\n};';
+    } else if (terminalInput === 'ls') {
+      terminalOutput = 'Documents Videos Desktop';
     } else {
       terminalOutput = 'Command not recognized';
     }
@@ -189,6 +191,9 @@ class CodeBox extends Component {
                   <div>
                     <p>Arnab this side.</p>
                     <p>How are you all!!!</p>
+                    <hr></hr>
+                    <p>We're doing great</p>
+                    <p>Excited to contribute to Hacktoberfest.</p>
                   </div>
                 )}
               </div>

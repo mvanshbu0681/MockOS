@@ -1,13 +1,15 @@
-import React from 'react'
-import { FaLinkedin, FaInstagram, FaGithub, FaTwitter } from 'react-icons/fa'
+"use client";
+import React from 'react';
+import { FaLinkedin, FaInstagram, FaGithub, FaTwitter } from 'react-icons/fa';
+import { Dock } from 'react-osx-dock';
 
-const Dock = () => {
+const DockMain = () => {
   return (
     <div>
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2">
         <div className="bg-opacity-70 backdrop-blur-md rounded-2xl p-4 border border-[#ffffff25] dock-container">
           <div className="flex items-center space-x-4">
-            <a className='hover:scale-110 ease-in-out duration-300' href="https://www.linkedin.com/in/arnabroy25" target="_blank" rel="noopener noreferrer">
+            {/* <a className='hover:scale-110 ease-in-out duration-300' href="https://www.linkedin.com/in/arnabroy25" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={25} color="white" />
             </a>
             <a className='hover:scale-110 ease-in-out duration-300' href="https://www.instagram.com/arnabroy__" target="_blank" rel="noopener noreferrer">
@@ -18,7 +20,18 @@ const Dock = () => {
             </a>
             <a href="https://www.twitter.com/ArnabRoy25" target="_blank" rel="noopener noreferrer">
               <FaTwitter size={25} color="white" />
-            </a>
+            </a> */}
+            <Dock itemWidth={50} magnification={1} magnifyDirection='up'>
+
+              {['A', 'B', 'C', 'D', 'E', 'F', 'G'].map((letter) => (
+                <img
+                  className="letter"
+                  src={`${letter}.png`}
+                  onClick={() => console.log(letter)}
+                  key={letter}
+                />
+              ))}
+            </Dock>
           </div>
         </div>
       </div>
@@ -26,4 +39,4 @@ const Dock = () => {
   )
 }
 
-export default Dock
+export default DockMain
