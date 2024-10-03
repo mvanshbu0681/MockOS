@@ -192,7 +192,7 @@ class CodeBox extends Component {
                     <p>Arnab this side.</p>
                     <p>How are you all!!!</p>
                     <hr></hr>
-                    <p>We're doing great</p>
+                    <p>We are doing great</p>
                     <p>Excited to contribute to Hacktoberfest.</p>
                   </div>
                 )}
