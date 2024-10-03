@@ -23,7 +23,7 @@ const DockMain = () => {
             </a> */}
             <Dock itemWidth={50} magnification={1} magnifyDirection='up'>
 
-              {['A', 'B', 'C', 'D', 'E', 'F', 'G'].map((letter) => (
+              {['github-logo.png', 'linkedin-logo'].map((letter) => (
                 <img
                   className="letter"
                   src={`${letter}.png`}
