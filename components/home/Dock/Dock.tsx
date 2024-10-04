@@ -13,7 +13,21 @@ const DockMain = () => {
                 <img
                   className="letter"
                   src={`${letter}.png`}
-                  onClick={() => (window.location.href = "https://www.spotify.com")}
+                  onClick={() => {
+                    if (letter=='finder') {
+                      window.location.href = "https://www.apple.in";
+                    } else if (letter=='slack') {
+                      window.location.href = "https://www.slack.com";
+                    } else if (letter=='spotify') {
+                      window.location.href = "https://www.spotify.com";
+                    } else if (letter=='guitar-pro') {
+                      window.location.href = "https://www.image-line.com/";
+                    } else if (letter=='terminal') {
+                      window.location.href = "https://www.onlinegdb.com/";
+                    } else if (letter=='trash') {
+                      window.location.href = "https://www.youtube.com";
+                    }
+                  }}
                   key={letter}
                 />
               )
