@@ -38,6 +38,8 @@ class CodeBox extends Component {
       terminalOutput = 'const details = {\n  name: "MockOS",\n  age: Under Construction\n};';
     } else if (terminalInput === 'ls') {
       terminalOutput = 'Documents Videos Desktop';
+    } else if (terminalInput == 'sudo apt install python') {
+      terminalOutput = 'Root directory not configured, kindly contact maintainer.'
     } else {
       terminalOutput = 'Command not recognized';
     }
