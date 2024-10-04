@@ -27,7 +27,7 @@ const DockMain = () => {
                 <img
                   className="letter"
                   src={`${letter}.png`}
-                  onClick={() => console.log(letter)}
+                  onClick={() => window.location.href = "https://www.spotify.com"}
                   key={letter}
                 />
               ))}
