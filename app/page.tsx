@@ -2,17 +2,20 @@ import React from 'react';
 import Navbar from '@/components/shared/navbar/navbar';
 import CodeBox from '@/components/home/CodeBox/CodeBox';
 import Dock from '@/components/home/Dock/Dock';
+import Image from 'next/image';
 
 function Home() {
-  const backgroundStyle = {
-    backgroundImage: `url('https://e1.pxfuel.com/desktop-wallpaper/123/938/desktop-wallpaper-100-best-mac-macbook-pro-m1.jpg')`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
-
   return (
-    <div className="relative h-screen overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full" style={backgroundStyle}></div>
+    <div className="absolute h-screen w-screen overflow-hidden">
+      <div style={{ height: '100vh', width: '100vw', position: 'absolute' }}>
+        <Image
+          src="/bg.jpg"
+          alt="Wallpaper"
+          fill 
+          style={{ objectFit: 'fill' }}
+          priority 
+        />
+      </div>
       <Navbar />
       <CodeBox />
       <Dock />
